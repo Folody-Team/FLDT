@@ -7,7 +7,7 @@ pub enum Block {
   BlockData(BlockData)
 }
 
-
+#[derive(Debug,Clone)]
 pub struct ChainFLD {
   pub blocks: Vec<Vec<HashMap<String, Block>>>,
   pub(crate) provider: providerData

@@ -7,11 +7,16 @@ use std::collections::HashMap;
 use std::time::{SystemTime, UNIX_EPOCH};
 use block::{Block as Block};
 use block::{BlockData as Data};
-use block::{ChainFLD as FLD};
+pub use block::{ChainFLD as ChainFLD};
 use block::{providerData as Provider};
 
-impl FLD {
-  pub fn new() -> Self {
+pub trait FLD {
+  fn new() -> Self;
+  fn initialization(&mut self, fromAddr: String, toAddr: String);
+}
+
+impl FLD for ChainFLD {
+  fn new() -> Self {
     Self { 
       blocks: vec![],
       provider:  Provider {
@@ -24,11 +29,8 @@ impl FLD {
     }
   }
 
-  pub fn hash2binary(hash: &[u8]) {
 
-  }
-
-  pub fn initialization(&mut self, fromAddr: String, toAddr: String) {
+  fn initialization(&mut self, fromAddr: String, toAddr: String) {
     let mut block: Vec<HashMap<String, Block>> = Vec::new();
     let mut id: HashMap<String, Block> = HashMap::new();
     id.insert(String::from("id"), Block::Id(hash(
@@ -69,8 +71,5 @@ impl FLD {
     self.blocks.push(block);
   }
   
-  pub fn isValid(&self, block: &Vec<HashMap<String, Block>>, previous_block: &Vec<HashMap<String, Block>>) {
-
-  }
 
 }
