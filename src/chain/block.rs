@@ -10,13 +10,13 @@ pub enum Block {
 #[derive(Debug,Clone)]
 pub struct ChainFLD {
   pub blocks: Vec<Vec<HashMap<String, Block>>>,
-  pub(crate) provider: providerData
+  pub(crate) provider: ProviderData
 }
 
 #[derive(Debug,Clone)]
-pub struct providerData {
+pub struct ProviderData {
   pub name: String,
-  pub shortName: String,
+  pub short_name: String,
   pub version: String,
   pub author: String,
   pub provider: String,
@@ -25,12 +25,12 @@ pub struct providerData {
 
 #[derive(Debug,Clone)]
 pub struct BlockData {
-  pub fromAddr: String,
-  pub toAddr: String,
+  pub from_addr: String,
+  pub to_addr: String,
   pub amount: f32,
-  pub transactionMsg: String,
-  pub createdAt: SystemTime,
-  pub verifiedBy: Vec<String>,
-  pub providerData: providerData
+  pub transaction_msg: String,
+  pub created_at: SystemTime,
+  pub verified_by: Vec<String>,
+  pub provider_data: ProviderData
 
 }
