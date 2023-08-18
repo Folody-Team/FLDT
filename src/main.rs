@@ -1,8 +1,12 @@
 mod math;
+mod chain;
 
-use math::{sha256 as hash};
+use chain::{FLD as FLD};
+use chain::{ChainFLD as ChainFLD};
 
 fn main() {
-    let res = hash("hello".to_string());
-    println!("Result: {}", res);
+    let mut block_chain = ChainFLD::new();
+    block_chain.initialization(String::from("hello"), String::from("hello"));
+    block_chain.initialization(String::from("siuu"), String::from("lolllll"));
+    println!("{:#?}", block_chain.blocks);
 }

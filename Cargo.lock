@@ -52,6 +52,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "any_vec"
+version = "0.12.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d7ea5311447c840f0ec49bf882e9746aec88e4eadffb5bba99969756ca62b718"
+
+[[package]]
 name = "bitflags"
 version = "2.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -144,6 +150,7 @@ dependencies = [
 name = "fldt"
 version = "0.1.0"
 dependencies = [
+ "any_vec",
  "clap",
  "rand",
 ]
